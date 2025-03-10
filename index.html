@@ -1,79 +1,118 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на День Рождения</title>
+    <title>Birthday Invitation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: url('https://unsplash.com/blog/content/images/2024/12/llc-banner--2-.png') no-repeat center center/cover;
-            color: #333;
+            background: url('background.jpg') no-repeat center center/cover;
+            color: white;
             margin: 0;
             padding: 0;
+            overflow: hidden;
         }
         .container {
             max-width: 600px;
             margin: 50px auto;
-            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            color: #ff4081;
+            font-size: 2.5rem;
+            animation: fadeIn 2s ease-in-out;
         }
-        #countdown {
-            font-size: 24px;
-            margin: 20px 0;
+        p {
+            font-size: 1.2rem;
+            animation: slideIn 1.5s ease-in-out;
         }
-        .btn {
+        .rsvp-btn {
             display: inline-block;
             padding: 10px 20px;
-            margin-top: 20px;
-            background: #ff4081;
-            color: white;
-            text-decoration: none;
+            font-size: 1.2rem;
+            color: #ff5e62;
+            background: white;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .rsvp-btn:hover {
+            background: #ffcccc;
+        }
+        .timer, .calendar {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .timer span {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .music-player {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
 <body>
-<!--     <audio autoplay loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-birthday.mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает аудио элемент.
-    </audio> -->
-    
     <div class="container">
-        <h1>Приглашаю на мой День Рождения!</h1>
-        <img src="https://source.unsplash.com/600x300/?cake,party" alt="Торт и праздник" style="width: 100%; border-radius: 10px;">
-        <p>Дата: 20 апреля 2025 года</p>
-        <p>Время: 18:00</p>
-        <p>Место: Кафе "Счастье"</p>
-        <div id="countdown"></div>
-        <a href="https://www.google.com/maps/place/%D0%9A%D0%B0%D1%84%D0%B5+%D0%A1%D1%87%D0%B0%D1%81%D1%82%D1%8C%D0%B5" class="btn" target="_blank">Открыть карту</a>
+        <h1>You're Invited!</h1>
+        <p>Join us to celebrate a special birthday!</p>
+        <p><strong>Date:</strong> [Your Date Here]</p>
+        <p><strong>Time:</strong> [Your Time Here]</p>
+        <p><strong>Location:</strong> [Your Location Here]</p>
+        <a href="#" class="rsvp-btn">RSVP Now</a>
+        
+        <div class="timer">
+            <p>Countdown to the Party:</p>
+            <span id="countdown"></span>
+        </div>
+        
+        <div class="calendar">
+            <p>Save the Date:</p>
+            <input type="date" id="event-date" value="2025-12-31">
+        </div>
     </div>
-
+    
+    <audio class="music-player" controls autoplay loop>
+        <source src="birthday_song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
     <script>
-        function updateCountdown() {
-            const eventDate = new Date("April 20, 2025 18:00:00").getTime();
-            const now = new Date().getTime();
-            const timeLeft = eventDate - now;
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = 
-                `До праздника осталось: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
-
-            if (timeLeft < 0) {
-                document.getElementById("countdown").innerHTML = "С Днем Рождения! 🎉";
-            }
+        function countdownTimer() {
+            const eventDate = new Date("2025-12-31T00:00:00").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const timeLeft = eventDate - now;
+                
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
         }
-        setInterval(updateCountdown, 1000);
+        countdownTimer();
     </script>
 </body>
 </html>
