@@ -8,7 +8,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            background: url('background1.jpg') no-repeat center center/cover;
+            background: url('background.jpg') no-repeat center center/cover;
             color: white;
             margin: 0;
             padding: 0;
@@ -30,129 +30,132 @@
             backdrop-filter: blur(10px);
             animation: fadeIn 2s ease-in-out;
         }
-        h1 {
-            font-size: 3rem;
-            animation: bounceIn 1.5s ease-in-out;
+        .calendar-block, .timer-block, .map-block {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            max-width: 400px;
+            margin: 30px auto;
+            animation: fadeIn 1.5s ease-in-out;
         }
-        p {
-            font-size: 1.3rem;
-            animation: slideIn 1.5s ease-in-out;
+        .calendar-container {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            padding: 20px;
         }
-        .rsvp-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            font-size: 1.4rem;
-            color: white;
+        .calendar-day {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            font-size: 1.2rem;
+        }
+        .selected {
             background: #ff5e62;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 20px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 94, 98, 0.8);
+        }
+        .timer {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .map-block a {
+            color: #ffeb3b;
+            font-size: 1.2rem;
             text-decoration: none;
-            transition: transform 0.3s ease-in-out;
-        }
-        .rsvp-btn:hover {
-            background: #ff2e4d;
-            transform: scale(1.1);
-        }
-        .section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 50px;
-            animation: fadeIn 2s ease-in-out;
-        }
-        .animated-text {
-            font-size: 1.5rem;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
-            animation: pulse 3s infinite;
-        }
-        .additional-text {
-            font-size: 1.5rem;
-            padding: 20px;
-            margin-top: 30px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
-            animation: slideIn 1.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes bounceIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes slideIn {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎉Вас приглашают на день рождение! 🎉</h1>
-        <p>Приходите праздновать день рождение с нами!</p>
-        <p><strong>ДАТА:</strong> 25:04:2025</p>
-        <p><strong>ВРЕМЯ:</strong> 18:00</p>
-        <p><strong>Локация:</strong> Улица Аэропортная, 24</p>
-        <a href="#" class="rsvp-btn">RSVP Now</a>
+        <h1>🎉 You're Invited! 🎉</h1>
+        <p>Come celebrate a special birthday with us!</p>
     </div>
     
     <div class="section">
-        <div class="animated-text">This birthday party will be full of fun, laughter, and unforgettable memories! 🎂🥳</div>
-    </div>
-    
-    <div class="section">
-        <div class="additional-text">Enjoy music, games, delicious food, and amazing company! Don't miss out on the fun! 🎶🍰🎈</div>
-    </div>
-    
-    <div class="section">
-        <div class="timer">
-            <p>Countdown to the Party:</p>
-            <span id="countdown"></span>
+        <div class="calendar-block">
+            <h2>📅 April 2025</h2>
+            <div class="calendar-container">
+                <div class="calendar-day">1</div>
+                <div class="calendar-day">2</div>
+                <div class="calendar-day">3</div>
+                <div class="calendar-day">4</div>
+                <div class="calendar-day">5</div>
+                <div class="calendar-day">6</div>
+                <div class="calendar-day">7</div>
+                <div class="calendar-day">8</div>
+                <div class="calendar-day">9</div>
+                <div class="calendar-day">10</div>
+                <div class="calendar-day">11</div>
+                <div class="calendar-day">12</div>
+                <div class="calendar-day">13</div>
+                <div class="calendar-day">14</div>
+                <div class="calendar-day">15</div>
+                <div class="calendar-day">16</div>
+                <div class="calendar-day">17</div>
+                <div class="calendar-day">18</div>
+                <div class="calendar-day">19</div>
+                <div class="calendar-day">20</div>
+                <div class="calendar-day">21</div>
+                <div class="calendar-day">22</div>
+                <div class="calendar-day">23</div>
+                <div class="calendar-day">24</div>
+                <div class="calendar-day selected">25</div>
+                <div class="calendar-day">26</div>
+                <div class="calendar-day">27</div>
+                <div class="calendar-day">28</div>
+                <div class="calendar-day">29</div>
+                <div class="calendar-day">30</div>
+            </div>
         </div>
-        <div class="calendar">
-            <p>Save the Date:</p>
-            <input type="date" id="event-date" value="2025-04-25">
-        </div>
+    </div>
+
+    <div class="timer-block">
+        <h2>⏳ Countdown to the Party!</h2>
+        <div id="timer" class="timer"></div>
     </div>
     
-    <div class="section">
-        <p>📍 Find Us Here:</p>
-        <a href="https://2gis.kz/almaty/firm/70000001040358159/77.045766%2C43.307902?m=77.046544%2C43.308056%2F17.78" target="_blank" class="rsvp-btn">Open in Google Maps</a>
+    <div class="map-block">
+        <h2>📍 Party Location</h2>
+        <a href="https://2gis.kz/almaty/firm/70000001040358159/77.045766%2C43.307902?m=77.045468%2C43.307798%2F18" target="_blank">Open in 2GIS Maps</a>
     </div>
     
     <audio id="background-music" autoplay loop>
         <source src="birthday_song.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    
+
     <script>
-        function countdownTimer() {
-            const eventDate = new Date("2025-12-31T00:00:00").getTime();
-            setInterval(() => {
+        function countdown() {
+            const eventDate = new Date("April 25, 2025 18:00:00").getTime();
+            const x = setInterval(function() {
                 const now = new Date().getTime();
-                const timeLeft = eventDate - now;
+                const distance = eventDate - now;
                 
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
-                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("timer").innerHTML = "🎉 It's Party Time! 🎉";
+                }
             }, 1000);
         }
-        countdownTimer();
+        countdown();
     </script>
 </body>
 </html>
