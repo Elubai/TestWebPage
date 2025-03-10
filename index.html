@@ -6,43 +6,48 @@
     <title>Birthday Invitation</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
             background: url('background.jpg') no-repeat center center/cover;
             color: white;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 40px;
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
             animation: fadeIn 2s ease-in-out;
         }
+        h1 {
+            font-size: 3rem;
+            animation: bounceIn 1.5s ease-in-out;
+        }
         p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             animation: slideIn 1.5s ease-in-out;
         }
         .rsvp-btn {
             display: inline-block;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            color: #ff5e62;
-            background: white;
+            padding: 12px 25px;
+            font-size: 1.4rem;
+            color: white;
+            background: #ff5e62;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             margin-top: 20px;
             text-decoration: none;
+            transition: transform 0.3s ease-in-out;
         }
         .rsvp-btn:hover {
-            background: #ffcccc;
+            background: #ff2e4d;
+            transform: scale(1.1);
         }
         .section {
             min-height: 100vh;
@@ -51,42 +56,46 @@
             justify-content: center;
             align-items: center;
             padding: 50px;
+            animation: fadeIn 2s ease-in-out;
         }
-        .timer, .calendar {
-            margin: 20px;
+        .animated-text {
+            font-size: 1.5rem;
             padding: 20px;
             background: rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            display: inline-block;
-        }
-        .timer span {
-            font-size: 1.5rem;
-            font-weight: bold;
+            border-radius: 15px;
+            animation: pulse 3s infinite;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
         @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
+            from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-        .music-player {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>You're Invited!</h1>
-        <p>Join us to celebrate a special birthday!</p>
+        <h1>🎉 You're Invited! 🎉</h1>
+        <p>Come celebrate a special birthday with us!</p>
         <p><strong>Date:</strong> [Your Date Here]</p>
         <p><strong>Time:</strong> [Your Time Here]</p>
         <p><strong>Location:</strong> [Your Location Here]</p>
         <a href="#" class="rsvp-btn">RSVP Now</a>
+    </div>
+    
+    <div class="section">
+        <div class="animated-text">This birthday party will be full of fun, laughter, and unforgettable memories! 🎂🥳</div>
     </div>
     
     <div class="section">
@@ -101,8 +110,8 @@
     </div>
     
     <div class="section">
-        <p>Find Us Here:</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=[Your+Location+Here]" target="_blank" class="rsvp-btn">Open in Google Maps</a>
+        <p>📍 Find Us Here:</p>
+        <a href="https://2gis.kz/almaty/firm/70000001040358159/77.045766%2C43.307902?m=77.046544%2C43.308056%2F17.78" target="_blank" class="rsvp-btn">Open in Google Maps</a>
     </div>
     
     <audio class="music-player" controls autoplay loop>
@@ -112,7 +121,7 @@
     
     <script>
         function countdownTimer() {
-            const eventDate = new Date("2025-04-25T18:00:00").getTime();
+            const eventDate = new Date("2025-12-31T00:00:00").getTime();
             setInterval(() => {
                 const now = new Date().getTime();
                 const timeLeft = eventDate - now;
