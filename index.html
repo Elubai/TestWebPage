@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Invitation</title>
+    <title>Приглашение на день рождение</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            background: url('background.jpg') no-repeat center center/cover;
+            background: url('background1.jpg') no-repeat center center/cover;
             color: white;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            animation: backgroundChange 15s infinite alternate;
+        }
+        @keyframes backgroundChange {
+            0% { background: url('background.jpg') no-repeat center center/cover; }
+            50% { background: url('background_1.jpg') no-repeat center center/cover; }
+            100% { background: url('background_2.jpg') no-repeat center center/cover; }
         }
         .container {
             max-width: 800px;
@@ -65,6 +71,14 @@
             border-radius: 15px;
             animation: pulse 3s infinite;
         }
+        .additional-text {
+            font-size: 1.5rem;
+            padding: 20px;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            animation: slideIn 1.5s ease-in-out;
+        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -86,16 +100,20 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎉 You're Invited! 🎉</h1>
-        <p>Come celebrate a special birthday with us!</p>
-        <p><strong>Date:</strong> [Your Date Here]</p>
-        <p><strong>Time:</strong> [Your Time Here]</p>
-        <p><strong>Location:</strong> [Your Location Here]</p>
+        <h1>🎉Вас приглашают на день рождение! 🎉</h1>
+        <p>Приходите праздновать день рождение с нами!</p>
+        <p><strong>ДАТА:</strong> 25:04:2025</p>
+        <p><strong>ВРЕМЯ:</strong> 18:00</p>
+        <p><strong>Локация:</strong> Улица Аэропортная, 24</p>
         <a href="#" class="rsvp-btn">RSVP Now</a>
     </div>
     
     <div class="section">
         <div class="animated-text">This birthday party will be full of fun, laughter, and unforgettable memories! 🎂🥳</div>
+    </div>
+    
+    <div class="section">
+        <div class="additional-text">Enjoy music, games, delicious food, and amazing company! Don't miss out on the fun! 🎶🍰🎈</div>
     </div>
     
     <div class="section">
@@ -105,7 +123,7 @@
         </div>
         <div class="calendar">
             <p>Save the Date:</p>
-            <input type="date" id="event-date" value="2025-12-31">
+            <input type="date" id="event-date" value="2025-04-25">
         </div>
     </div>
     
@@ -114,7 +132,7 @@
         <a href="https://2gis.kz/almaty/firm/70000001040358159/77.045766%2C43.307902?m=77.046544%2C43.308056%2F17.78" target="_blank" class="rsvp-btn">Open in Google Maps</a>
     </div>
     
-    <audio class="music-player" controls autoplay loop>
+    <audio id="background-music" autoplay loop>
         <source src="birthday_song.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
